@@ -22,6 +22,8 @@ jobs:
         run: |
           env
       - name: Run echo@shell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo $GITHUB_TOKEN
           echo ${{ secrets.GITHUB_TOKEN }}
