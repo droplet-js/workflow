@@ -13,6 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
+    permissions:
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
