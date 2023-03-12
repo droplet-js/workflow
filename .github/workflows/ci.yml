@@ -5,8 +5,8 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '20 9 * * 0'
-    - cron: '20 9 12 3 *'
+    - cron: '40 9 * * 0'
+    - cron: '40 9 12 3 *'
 
 jobs:
   build:
@@ -26,11 +26,11 @@ jobs:
           date
           env
       - name: Run script/cron-1@shell
-        if: github.event.schedule == '10 9 * * 0'
+        if: github.event.schedule == '40 9 * * 0'
         run: |
           date
       - name: Run script/cron-2@shell
-        if: github.event.schedule == '10 9 12 3 *'
+        if: github.event.schedule == '40 9 12 3 *'
         run: |
           date
       - name: Run echo@shell
