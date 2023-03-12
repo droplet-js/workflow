@@ -21,13 +21,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Checkout
+      - name: Checkout Github Pages
+        id: checkout-github-pages
         uses: actions/checkout@v3
+        continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
       - name: no gh-pages branch
-        if: ${{ failure() }}
+        if: steps.checkout-github-pages.conclusion == 'failure'
         run: |
           echo "no gh-pages branch"
       - name: Run script@shell
