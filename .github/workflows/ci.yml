@@ -24,6 +24,14 @@ jobs:
       - name: Run script@shell
         run: |
           env
+      - name: Run script/cron-1@shell
+        if: github.event.schedule == '10 9 * * 0'
+        run: |
+          echo $GITHUB_TOKEN
+      - name: Run script/cron-2@shell
+        if: github.event.schedule == '10 9 12 3 *'
+        run: |
+          echo $GITHUB_TOKEN
       - name: Run echo@shell
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
