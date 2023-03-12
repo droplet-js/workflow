@@ -21,6 +21,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: no gh-pages branch
+        if: ${{ failure() }}
+        run: |
+          echo "no gh-pages branch"
       - name: Run script@shell
         run: |
           date
