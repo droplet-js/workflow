@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '30 9 * * 0'
+    - cron: '30 9 12 3 *'
 
 jobs:
   build:
